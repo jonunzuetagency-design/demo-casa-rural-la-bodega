@@ -529,3 +529,16 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .rb-card p{margin:.6rem 0 0;font-size:.9rem;line-height:1.45;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .rb-themes{margin:1.4rem 0 0;opacity:.6;font-size:.72rem;letter-spacing:.06em}
 @media(max-width:820px){.rb-card{width:76vw}}
+
+/* Menú legible sobre la foto de portada */
+.nav.on-dark{background:linear-gradient(180deg,rgba(20,24,16,.55),rgba(20,24,16,0))}
+.nav.on-dark .nav__links a,.nav.on-dark .nav__brand{color:var(--on-dark);text-shadow:0 1px 8px rgba(0,0,0,.35)}
+
+.nav:not(.solid){color:var(--on-dark);background:linear-gradient(180deg,rgba(20,24,16,.55),rgba(20,24,16,0))}
+.nav:not(.solid) .nav__links a,.nav:not(.solid) .nav__brand{color:var(--on-dark);text-shadow:0 1px 8px rgba(0,0,0,.35)}
+.nav:not(.solid) .nav__cta{background:var(--cal);color:var(--ink)}
+
+/* Mapa en recuadro normal y a color */
+.where__map{border-radius:14px!important;aspect-ratio:4/3!important;min-height:380px}
+.where__map iframe{filter:none!important;min-height:380px}
+@media(max-width:820px){.where__map{aspect-ratio:1/1!important}}

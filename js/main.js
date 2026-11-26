@@ -89,9 +89,10 @@
   /* ---------- Nav sólida ---------- */
   var nav = $('#nav');
   function solidCheck(y) {
-    var hero = $('.hero');
-    var limit = hero ? (hero.parentElement.classList.contains('pin-spacer') ? hero.parentElement.offsetHeight : hero.offsetHeight) - 70 : 200;
+    var hero = $('.hero2');
+    var limit = hero ? hero.offsetHeight - 70 : 200;
     nav.classList.toggle('solid', y > limit);
+    nav.classList.toggle('on-dark', y <= limit);
   }
 
   /* ---------- Galería en bucle ---------- */
@@ -304,4 +305,11 @@
 
   if (document.readyState === 'complete' || window.gsap) initMotion();
   else window.addEventListener('load', initMotion);
+})();
+
+/* Menú: claro sobre la portada, sólido al bajar */
+(function () {
+  var n = document.getElementById('nav'), h = document.querySelector('.hero2'); if (!n || !h) return;
+  var f = function () { var lim = h.offsetHeight - 70, y = window.scrollY; n.classList.toggle('solid', y > lim); n.classList.toggle('on-dark', y <= lim); };
+  addEventListener('scroll', f, { passive: true }); f(); setInterval(f, 400);
 })();
