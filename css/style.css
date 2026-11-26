@@ -507,8 +507,6 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .pool__txt{grid-column:1!important}
 .pool__f1,.pool__f2{grid-column:auto!important;margin:0!important;aspect-ratio:4/5!important;border-radius:12px}
 .pool__f1 img,.pool__f2 img{width:100%;height:100%;object-fit:cover}
-/* Dormitorios y baños más compactos */
-.arch__img{max-height:52vh}
 @media(max-width:820px){
   .inside .wrap{grid-template-columns:1fr}
   .collage{grid-template-columns:1fr 1fr!important}
@@ -542,3 +540,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .where__map{border-radius:14px!important;aspect-ratio:4/3!important;min-height:380px}
 .where__map iframe{filter:none!important;min-height:380px}
 @media(max-width:820px){.where__map{aspect-ratio:1/1!important}}
+
+.where__map{clip-path:none!important}
+.olive__arch .arch__img{max-height:none!important}
+.beds .arch__img{max-height:52vh}
