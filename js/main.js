@@ -13,7 +13,7 @@
   $$('.js-wa').forEach(function (a) { a.href = WA; });
 
   /* ---------- Intro de carga ---------- */
-  var heroImg = $('.hero__arch img');
+  var heroImg = $('.hero2__img');
   function loaded() { requestAnimationFrame(function () { root.classList.add('loaded'); }); }
   if (heroImg && !heroImg.complete) { heroImg.addEventListener('load', loaded); setTimeout(loaded, 1800); } else loaded();
 
@@ -241,41 +241,7 @@
       });
     });
 
-    /* Hero: el arco se abre a pantalla completa */
-    var hero = $('.hero'), arch = $('#heroArch'), mobile = matchMedia('(max-width:820px)');
-    var over = $('#heroOver');
-    var tl = gsap.timeline({
-      defaults: { ease: 'none' },
-      scrollTrigger: {
-        trigger: hero, start: 'top top', end: '+=110%', pin: true, scrub: 0.7, invalidateOnRefresh: true,
-        onUpdate: function (s) {
-          var open = s.progress > 0.42;
-          hero.classList.toggle('is-open', open);
-          nav.classList.toggle('on-dark', open && s.progress < 1);
-        }
-      }
-    });
-    tl.fromTo(arch, {
-      width: function () { return arch.offsetWidth; },
-      height: function () { return arch.offsetHeight; },
-      borderTopLeftRadius: function () { return arch.offsetWidth / 2; },
-      borderTopRightRadius: function () { return arch.offsetWidth / 2; }
-    }, {
-      width: function () { return hero.offsetWidth; },
-      height: function () { return hero.offsetHeight; },
-      bottom: function () { return mobile.matches ? 0 : 'auto'; },
-      borderTopLeftRadius: 0, borderTopRightRadius: 0, ease: 'power2.inOut', duration: 1, immediateRender: false
-    }, 0)
-      .fromTo('.hero__zoom', { scale: 1.15 }, { scale: 1, duration: 1, immediateRender: false }, 0)
-      .to('.ht--l', { xPercent: -130, duration: 0.8, ease: 'power1.in' }, 0)
-      .to('.ht--r', { xPercent: 130, duration: 0.8, ease: 'power1.in' }, 0)
-      .fromTo('.hero__kicker', { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.25, immediateRender: false }, 0)
-      .fromTo('.hero__shade', { opacity: 0 }, { opacity: 1, duration: 0.5, immediateRender: false }, 0.4)
-      .fromTo(over, { autoAlpha: 1, clipPath: 'inset(0 0 100% 0)', y: 30 }, { clipPath: 'inset(0 0 -10% 0)', y: 0, duration: 0.35, immediateRender: false }, 0.7)
-      .to({}, { duration: 0.15 });
-    if (mobile.matches) {
-      tl.to('.ht', { yPercent: -60, duration: 0.8 }, 0);
-    }
+    var hero = $(".hero2");
 
     /* Intro: palabras que se encienden con el scroll */
     if (words.length) {
@@ -303,10 +269,6 @@
     });
     gsap.fromTo('#poolFrame img', { scale: 1.25 }, {
       scale: 1, ease: 'none',
-      scrollTrigger: { trigger: '#poolPin', start: 'top bottom', end: 'bottom top', scrub: true }
-    });
-    gsap.fromTo('.pool__big', { yPercent: 35 }, {
-      yPercent: -25, ease: 'none',
       scrollTrigger: { trigger: '#poolPin', start: 'top bottom', end: 'bottom top', scrub: true }
     });
     gsap.fromTo('.pool__cap', { clipPath: 'inset(0 0 100% 0)', y: 40 }, {

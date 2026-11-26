@@ -476,3 +476,56 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 /* ajustes */
 .hero__lead{max-width:22ch;text-shadow:0 2px 24px rgba(10,12,8,.45)}
 .hero__shade{background:linear-gradient(180deg,rgba(20,24,16,.4) 0%,rgba(20,24,16,.05) 28%,rgba(20,24,16,.2) 50%,rgba(20,24,16,.8) 100%)}
+
+/* ===== Retoques: portada estática, fotos ordenadas, web más compacta ===== */
+:root{--sec:clamp(4.5rem,9vw,8rem)}
+.hero2{position:relative;height:100svh;min-height:620px;color:#fff;overflow:hidden;display:flex;align-items:flex-end}
+.hero2__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero2__shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,24,16,.35) 0%,rgba(20,24,16,.05) 30%,rgba(20,24,16,.25) 55%,rgba(20,24,16,.78) 100%)}
+.hero2__in{position:relative;z-index:1;padding:0 var(--gut) clamp(2.5rem,6vh,4.5rem);width:100%;max-width:1400px;margin:0 auto}
+.hero2__k{opacity:.9;letter-spacing:.14em;font-size:.72rem;text-transform:uppercase;margin:0 0 1rem}
+.hero2__t{font-family:var(--f-display,serif);font-weight:400;font-size:clamp(4rem,11vw,10rem);line-height:.9;margin:0;letter-spacing:-.02em}
+.hero2__t em{font-style:italic}
+.hero2__lead{max-width:34rem;font-size:clamp(1.05rem,1.4vw,1.3rem);line-height:1.5;margin:1.2rem 0 1.8rem;opacity:.95}
+.hero2__btns{display:flex;gap:1.4rem;align-items:center;flex-wrap:wrap}
+.hero2__facts{display:flex;flex-wrap:wrap;gap:.6rem;margin:2rem 0 0;font-size:.78rem}
+.hero2__facts span{background:rgba(255,255,255,.14);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.25);padding:.4rem .8rem;border-radius:99px}
+/* Estancias: rejilla 2x2 ordenada en lugar de bloques alternos grandes */
+.inside .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,3vw,2.5rem) clamp(1.2rem,2.5vw,2rem)}
+.inside .sec-head{grid-column:1/-1}
+.room,.room--b{display:block!important;margin:0!important}
+.room__fig,.room--b .room__fig,.room--b:nth-of-type(odd) .room__fig{aspect-ratio:4/3!important;margin:0 0 1rem!important;overflow:hidden;border-radius:12px}
+.room__fig img{width:100%;height:100%;object-fit:cover}
+.room__txt{padding:0!important}
+.room__txt .h3{margin:.2rem 0 .3rem}
+/* Exterior: 4 fotos iguales */
+.collage{grid-template-columns:repeat(4,1fr)!important;grid-auto-rows:auto!important}
+.c1,.c2,.c3,.c4{grid-column:auto!important;grid-row:auto!important;aspect-ratio:3/4;border-radius:12px}
+.collage img{width:100%;height:100%;object-fit:cover}
+/* Piscina: texto + dos fotos iguales */
+.pool__more{grid-template-columns:1.1fr 1fr 1fr!important;align-items:center!important;margin-top:clamp(2.5rem,5vw,4rem)!important}
+.pool__txt{grid-column:1!important}
+.pool__f1,.pool__f2{grid-column:auto!important;margin:0!important;aspect-ratio:4/5!important;border-radius:12px}
+.pool__f1 img,.pool__f2 img{width:100%;height:100%;object-fit:cover}
+/* Dormitorios y baños más compactos */
+.arch__img{max-height:52vh}
+@media(max-width:820px){
+  .inside .wrap{grid-template-columns:1fr}
+  .collage{grid-template-columns:1fr 1fr!important}
+  .pool__more{grid-template-columns:1fr 1fr!important}.pool__txt{grid-column:1/-1!important}
+}
+/* Reseñas: dos franjas que se deslizan (como La Braña, más compactas) */
+.rb{margin-top:2rem;display:grid;gap:.8rem;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.rb-row{overflow:hidden}
+.rb-track{display:flex;gap:.8rem;width:max-content;animation:rbmq 55s linear infinite}
+.rb-rev .rb-track{animation-direction:reverse;animation-duration:62s}
+.rb:hover .rb-track{animation-play-state:paused}
+@keyframes rbmq{to{transform:translateX(-25%)}}
+.rb-card{width:clamp(250px,24vw,320px);flex:none;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:1rem 1.1rem}
+.rb-top{display:flex;align-items:center;gap:.6rem}
+.rb-top b{display:block;font-size:.85rem}.rb-top small{display:block;font-size:.7rem;opacity:.65}
+.rb-av{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--almagra,#a33b25);color:#fff;font-weight:600;font-size:.85rem;flex:none}
+.rb-st{margin-left:auto;color:#e8b04b;font-size:.72rem;letter-spacing:1px}
+.rb-card p{margin:.6rem 0 0;font-size:.9rem;line-height:1.45;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.rb-themes{margin:1.4rem 0 0;opacity:.6;font-size:.72rem;letter-spacing:.06em}
+@media(max-width:820px){.rb-card{width:76vw}}
